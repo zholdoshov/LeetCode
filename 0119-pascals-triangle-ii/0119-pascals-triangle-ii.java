@@ -1,9 +1,12 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
         List<List<Integer>> triangle = new ArrayList<>();
+        
         for (int i = 1; i < rowIndex+2; i++) {
             List<Integer> row = new ArrayList<>();
+            
             for (int j = 0; j < i; j++) {
+                
                 if (j == 0 || j == i-1) {
                     row.add(1);
                 } else {
@@ -15,3 +18,4 @@ class Solution {
         return triangle.get(rowIndex);
     }
 }
+// the difference with Pascal's Triangle I is we create rowIndex+1 rows to return triangle[rowIndex]

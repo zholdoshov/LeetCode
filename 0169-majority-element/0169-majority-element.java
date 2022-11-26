@@ -1,18 +1,17 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int majorityElement = nums.length/2;
-        
-        for (int i = 0; i < nums.length; i++) {
-            int count = 0;
-            for (int j = 0; j < nums.length; j++) {
-                if (nums[i] == nums[j]) {
-                    count += 1;
-                }
+        int count = 0;
+        Integer candidate = null;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
             }
-            if (count > majorityElement) {
-                return nums[i];
-            }
+            count += (num == candidate) ? 1 : -1;
         }
-        return -1;
+
+        return candidate;
     }
 }
+
+// Boyer-Moore Voting Algorithm
